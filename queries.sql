@@ -37,3 +37,27 @@ FROM (
 GROUP BY skill
 ORDER BY frequency DESC;
 
+----
+
+SELECT company_industry, COUNT(*) AS job_count
+FROM jobs
+WHERE company_industry IS NOT NULL
+GROUP BY company_industry
+ORDER BY job_count DESC
+LIMIT 5;
+
+----
+
+SELECT 
+    MIN(min_amount) AS min_salary, 
+    MAX(max_amount) AS max_salary
+FROM jobs
+WHERE min_amount IS NOT NULL AND max_amount IS NOT NULL;
+
+----
+
+SELECT company_num_employees, COUNT(*) AS job_count
+FROM jobs
+WHERE company_num_employees IS NOT NULL
+GROUP BY company_num_employees
+ORDER BY job_count DESC;
